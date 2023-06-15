@@ -1,0 +1,14 @@
+POST http://localhost:3000/article/ww.p2.com
+Content-Type : application/json
+
+{
+  "title" : "how to be a bad nerd",
+  "url" : "ww.p2.com",
+  "summary" : "Empty",
+  "body" : "If you asked people what was special about Einstein, most would say that he was really smart. Even the ones who tried to give you a more sophisticated-sounding answer would probably think this first. Till a few years ago I would have given the same answer myself. But that wasn't what was special about Einstein. What was special about him was that he had important new ideas. Being very smart was a necessary precondition for having those ideas, but the two are not identical.It may seem a hair-splitting distinction to point out that intelligence and its consequences are not identical, but it isn't."
+}
+###
+GET http://localhost:3000/article
+###
+POST http://localhost:3000/article/wwww.pg.com
+
