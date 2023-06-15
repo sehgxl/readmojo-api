@@ -13,9 +13,9 @@ router.get("/article", async (req, res) => {
       allarticles: articles,
     });
   } catch (error) {
+    console.log(error);
     res.json({
       message: "Sorry something went wrong, please try again :(",
-      error: error,
       path: "get/article",
     });
   }
@@ -43,9 +43,9 @@ router.post("/article/", async (req, res) => {
     }
     res.json({ article });
   } catch (error) {
+    console.log(error);
     res.json({
       message: "Sorry something went wrong, please try again :(",
-      error: error,
       path: "get/article/url",
     });
   }

@@ -11,7 +11,6 @@ const getSummary = async (body) => {
   const text = body;
   const model = new OpenAI({
     temperature: 0,
-    modelName: "text-ada-001",
     OpenAIApi: process.env.OPENAI_API_KEY,
   });
   const textSplitter = new RecursiveCharacterTextSplitter({ chunkSize: 1000 });
