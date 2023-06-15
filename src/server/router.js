@@ -1,14 +1,13 @@
 import { Router } from "express";
-import { PrismaClient } from "@prisma/client";
+import prisma from "./prismaClinet.js";
 import getSummary from "./getSummary.js";
 
 const router = Router();
-const primsa = new PrismaClient();
 
 //Articles
 router.get("/article", async (req, res) => {
   try {
-    const articles = await primsa.article.findMany();
+    const articles = await prisma.article.findMany();
     res.json({
       message: "hello here are all your articles",
       allarticles: articles,
@@ -25,7 +24,7 @@ router.get("/article", async (req, res) => {
 router.post("/article/:url", async (req, res) => {
   try {
     const { url } = req.params;
-    let article = await primsa.article.findUnique({
+    let article = await prisma.article.findUnique({
       where: {
         url: url,
       },
@@ -34,7 +33,7 @@ router.post("/article/:url", async (req, res) => {
       // const summary = await getSummary(req.body.body);
       const summary = await getSummary(req.body.body);
       // console.log("herree is the summary =>", summary);
-      article = await primsa.article.create({
+      article = await prisma.article.create({
         data: {
           title: req.body.title,
           url: req.body.url,
