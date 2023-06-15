@@ -21,12 +21,11 @@ router.get("/article", async (req, res) => {
   }
 });
 
-router.post("/article/:url", async (req, res) => {
+router.post("/article/", async (req, res) => {
   try {
-    const { url } = req.params;
     let article = await prisma.article.findUnique({
       where: {
-        url: url,
+        url: req.body.url,
       },
     });
     if (article === null) {
